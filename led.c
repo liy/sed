@@ -69,7 +69,7 @@ static void stop_blink(void)
 
 void led_blink(void)
 {
-    xTaskCreate(&blink_task, "blink_task", 2048, NULL, 5, &s_blink_task_handle);
+    xTaskCreate(&blink_task, "blink_task", 4096, NULL, 5, &s_blink_task_handle);
 }
 
 void led_off() {
@@ -78,8 +78,14 @@ void led_off() {
     led_strip_refresh(led_strip);
 }
 
-void on() {
+void led_on() {
     stop_blink();
     led_strip_set_pixel(led_strip, 0, 0, 10, 50);
+    led_strip_refresh(led_strip);
+}
+
+void led_wait() {
+    stop_blink();
+    led_strip_set_pixel(led_strip, 0, 10, 10, 0);
     led_strip_refresh(led_strip);
 }
