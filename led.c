@@ -89,3 +89,13 @@ void led_wait() {
     led_strip_set_pixel(led_strip, 0, 10, 10, 0);
     led_strip_refresh(led_strip);
 }
+
+void led_action() {
+    led_strip_set_pixel(led_strip, 0, 0, 10, 0);
+    led_strip_refresh(led_strip);
+
+    vTaskDelay(500 / portTICK_PERIOD_MS);
+
+    /* Set all LED off to clear all pixels */
+    led_strip_clear(led_strip);
+}
