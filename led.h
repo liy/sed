@@ -9,3 +9,5 @@ void led_on(void);
 void led_wait(void);
 
 void led_action(void);
+
+void led_fail(void);
