@@ -8,7 +8,7 @@
 
 #define BLINK_GPIO 8
 
-static const char *TAG = "led";
+// static const char *TAG = "led";
 
 static uint8_t s_led_state = 0;
 
